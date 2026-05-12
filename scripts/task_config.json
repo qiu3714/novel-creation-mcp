@@ -1,0 +1,25 @@
+{
+  "name": "小说创作内容自动采集",
+  "description": "每周定时采集各大平台小说创作相关内容并更新知识库",
+  "schedule": {
+    "type": "weekly",
+    "day": "周一",
+    "hour": 9,
+    "minute": 0
+  },
+  "enabled": true,
+  "last_run": null,
+  "next_run": null,
+  "run_count": 0,
+  "success_count": 0,
+  "fail_count": 0,
+  "version": "2.0.0",
+  "history": [],
+  "settings": {
+    "auto_backup": true,
+    "max_history": 50,
+    "notification_enabled": false,
+    "retry_on_failure": true,
+    "max_retries": 3
+  }
+}

@@ -1,0 +1,228 @@
+{
+    "version": "1.0.0",
+    "name": "小说创作知识库自动化录入任务",
+    "description": "用于自动化任务调度的知识库录入提示词系统",
+    "scheduled": {
+        "frequency": "每周一次",
+        "day": "周一",
+        "time": "09:00"
+    },
+    "prompts": {
+        "collection": "你是一个专业的网文创作知识库管理员，负责从各大平台采集高质量的小说创作相关内容。请从以下内容中提取真正有价值的知识要点。",
+
+        "classification_rules": {
+            "high_priority_sections": [
+                "character_design",
+                "plot_structure",
+                "worldbuilding",
+                "writing_techniques"
+            ],
+            "medium_priority_sections": [
+                "dialogue_generation",
+                "templates",
+                "mythology"
+            ],
+            "low_priority_sections": [
+                "ip_case_studies",
+                "genresearch",
+                "platform_guides",
+                "monetization",
+                "summary"
+            ]
+        },
+
+        "quality_filter": {
+            "must_have": [
+                "具体的技巧或方法",
+                "可操作的建议",
+                "有实际案例支撑"
+            ],
+            "must_avoid": [
+                "空泛的大道理",
+                "水文和废话",
+                "重复的内容",
+                "过时或无用的信息"
+            ]
+        },
+
+        "relevance_check": {
+            "high_threshold": 8,
+            "medium_threshold": 6,
+            "low_threshold": 4,
+            "reject_threshold": 3
+        },
+
+        "output_template": {
+            "fields": [
+                "section",
+                "title",
+                "core_knowledge",
+                "key_points",
+                "application_scenario",
+                "practical_tips",
+                "examples",
+                "quality_score"
+            ],
+            "format": "structured_json"
+        }
+    },
+
+    "section_specific_prompts": {
+        "character_design": {
+            "focus": "角色设定、性格塑造、人物关系",
+            "extract_keywords": ["角色", "人设", "性格", "反派", "成长"],
+            "min_content_length": 100,
+            "required_elements": [
+                "具体的性格特征描述",
+                "行为逻辑说明",
+                "成长或变化空间"
+            ]
+        },
+        "plot_structure": {
+            "focus": "情节设计、故事结构、节奏把控",
+            "extract_keywords": ["情节", "结构", "节奏", "反转", "伏笔", "悬念"],
+            "min_content_length": 150,
+            "required_elements": [
+                "明确的冲突设置",
+                "节奏设计要点",
+                "实用的写作技巧"
+            ]
+        },
+        "worldbuilding": {
+            "focus": "世界观构建、力量体系、社会结构",
+            "extract_keywords": ["世界观", "力量体系", "设定", "宗门", "修炼"],
+            "min_content_length": 200,
+            "required_elements": [
+                "规则自洽性",
+                "独特的世界特色",
+                "代价机制设计"
+            ]
+        },
+        "writing_techniques": {
+            "focus": "写作技法、开篇技巧、文笔提升",
+            "extract_keywords": ["写作", "开篇", "描写", "代入感", "氛围"],
+            "min_content_length": 80,
+            "required_elements": [
+                "可操作的技巧",
+                "应用场景说明",
+                "成功案例"
+            ]
+        },
+        "dialogue_generation": {
+            "focus": "对话设计、潜台词、角色语言风格",
+            "extract_keywords": ["对话", "台词", "潜台词", "人物语言"],
+            "min_content_length": 80,
+            "required_elements": [
+                "角色特点体现",
+                "功能目的说明",
+                "潜台词设计"
+            ]
+        },
+        "mythology": {
+            "focus": "神话体系、神祇设定、传说融合",
+            "extract_keywords": ["神话", "神祇", "克苏鲁", "希腊", "北欧"],
+            "min_content_length": 150,
+            "required_elements": [
+                "准确的神话知识",
+                "改编建议",
+                "适用题材"
+            ]
+        },
+        "ip_case_studies": {
+            "focus": "IP案例分析、成功要素、可借鉴点",
+            "extract_keywords": ["案例", "分析", "诡秘", "斗破", "凡人"],
+            "min_content_length": 200,
+            "required_elements": [
+                "深度分析",
+                "成功要素提炼",
+                "可操作性"
+            ]
+        },
+        "templates": {
+            "focus": "设定模板、大纲框架、设计表",
+            "extract_keywords": ["模板", "框架", "大纲", "设定"],
+            "min_content_length": 100,
+            "required_elements": [
+                "结构完整性",
+                "要点覆盖",
+                "填写示例"
+            ]
+        },
+        "genresearch": {
+            "focus": "历史资料、文化背景、创作研究",
+            "extract_keywords": ["历史", "文化", "背景", "资料"],
+            "min_content_length": 150,
+            "required_elements": [
+                "知识准确性",
+                "创作应用建议",
+                "便于融入情节"
+            ]
+        },
+        "platform_guides": {
+            "focus": "平台分析、风格特点、读者喜好",
+            "extract_keywords": ["起点", "番茄", "晋江", "平台"],
+            "min_content_length": 100,
+            "required_elements": [
+                "平台信息准确",
+                "针对性建议",
+                "实操技巧"
+            ]
+        },
+        "monetization": {
+            "focus": "变现技巧、运营策略、版权运营",
+            "extract_keywords": ["变现", "收入", "版权", "运营"],
+            "min_content_length": 100,
+            "required_elements": [
+                "方法可操作",
+                "数据支撑",
+                "具体案例"
+            ]
+        },
+        "summary": {
+            "focus": "方法论总结、核心要点、实践建议",
+            "extract_keywords": ["总结", "要点", "方法论", "核心"],
+            "min_content_length": 150,
+            "required_elements": [
+                "观点独到",
+                "要点精炼",
+                "指导实践"
+            ]
+        }
+    },
+
+    "automation_rules": {
+        "deduplication": {
+            "enabled": true,
+            "similarity_threshold": 0.8,
+            "check_fields": ["title", "core_knowledge"]
+        },
+        "update_policy": {
+            "replace_when": [
+                "新内容更完整准确",
+                "新内容时效性更强",
+                "新内容实用价值更高"
+            ],
+            "merge_when": [
+                "新旧内容互补",
+                "可以形成更完整的知识体系"
+            ],
+            "keep_both_when": [
+                "角度不同",
+                "深度不同",
+                "各有独特价值"
+            ]
+        },
+        "batch_processing": {
+            "max_batch_size": 50,
+            "quality_threshold": 6,
+            "parallel_extraction": false
+        }
+    },
+
+    "output_format": {
+        "report_generation": true,
+        "include_statistics": true,
+        "include_rejected_content": true,
+        "format": "markdown"
+    }
+}

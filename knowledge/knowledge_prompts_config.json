@@ -1,0 +1,411 @@
+{
+    "version": "1.0.0",
+    "description": "知识库内容录入提示词配置",
+    "sections": {
+        "character_design": {
+            "name": "角色设定",
+            "description": "小说角色创建、性格塑造、人物关系设计等",
+            "required_fields": [
+                "角色类型",
+                "核心性格",
+                "行为特征",
+                "成长弧线"
+            ],
+            "keywords": [
+                "角色",
+                "人物",
+                "性格",
+                "人设",
+                "反派",
+                "配角",
+                "主角",
+                "成长"
+            ],
+            "examples": [
+                "如何设计一个让人印象深刻的主角",
+                "反派角色的人设设计技巧",
+                "配角的功能和设计"
+            ],
+            "quality_checklist": [
+                "✓ 有具体的性格特征描述",
+                "✓ 有行为逻辑支撑",
+                "✓ 有成长或变化空间",
+                "✓ 能推动剧情发展",
+                "✓ 避免脸谱化设定"
+            ],
+            "min_relevance_score": 7,
+            "auto_import": true
+        },
+        "plot_structure": {
+            "name": "情节与结构",
+            "description": "故事结构设计、情节发展、节奏把控、反转设计等",
+            "required_fields": [
+                "核心冲突",
+                "发展阶段",
+                "高潮设计",
+                "结局安排"
+            ],
+            "keywords": [
+                "情节",
+                "故事",
+                "结构",
+                "节奏",
+                "反转",
+                "伏笔",
+                "悬念",
+                "高潮",
+                "冲突"
+            ],
+            "examples": [
+                "如何设计一个引人入胜的开头",
+                "情节反转的技巧",
+                "高潮设计方法"
+            ],
+            "quality_checklist": [
+                "✓ 有明确的冲突驱动",
+                "✓ 有起伏节奏设计",
+                "✓ 有伏笔和悬念",
+                "✓ 有合理的因果逻辑",
+                "✓ 避免拖沓或跳跃"
+            ],
+            "min_relevance_score": 7,
+            "auto_import": true
+        },
+        "worldbuilding": {
+            "name": "世界观构建",
+            "description": "幻想世界、现实世界、异世界等设定",
+            "required_fields": [
+                "世界规则",
+                "社会结构",
+                "力量体系",
+                "文化特色"
+            ],
+            "keywords": [
+                "世界观",
+                "设定",
+                "世界",
+                "力量体系",
+                "宗门",
+                "国家",
+                "地理",
+                "文化"
+            ],
+            "examples": [
+                "如何设计一个完整的力量体系",
+                "世界观构建的要素",
+                "宗门架构设计"
+            ],
+            "quality_checklist": [
+                "✓ 规则自洽无矛盾",
+                "✓ 有独特的世界特色",
+                "✓ 力量体系有代价机制",
+                "✓ 社会结构合理",
+                "✓ 遵循冰山原则"
+            ],
+            "min_relevance_score": 7,
+            "auto_import": true
+        },
+        "writing_techniques": {
+            "name": "写作技法",
+            "description": "开篇技巧、场景描写、氛围营造、文笔提升等",
+            "required_fields": [
+                "技法名称",
+                "核心要点",
+                "应用场景",
+                "示例"
+            ],
+            "keywords": [
+                "写作",
+                "文笔",
+                "描写",
+                "开篇",
+                "氛围",
+                "代入感",
+                "技巧",
+                "手法"
+            ],
+            "examples": [
+                "如何写出有代入感的开篇",
+                "场景描写的技巧",
+                "氛围营造方法"
+            ],
+            "quality_checklist": [
+                "✓ 有可操作的技巧要点",
+                "✓ 有实际应用场景",
+                "✓ 有成功案例支撑",
+                "✓ 避免空泛理论"
+            ],
+            "min_relevance_score": 6,
+            "auto_import": true
+        },
+        "dialogue_generation": {
+            "name": "对话生成",
+            "description": "角色对话设计、潜台词运用、对话风格等",
+            "required_fields": [
+                "角色特点",
+                "对话目的",
+                "潜台词设计",
+                "风格把握"
+            ],
+            "keywords": [
+                "对话",
+                "台词",
+                "潜台词",
+                "人物语言",
+                "交流"
+            ],
+            "examples": [
+                "如何写出有个性的角色对话",
+                "对话中的潜台词设计",
+                "不同性格角色的说话方式"
+            ],
+            "quality_checklist": [
+                "✓ 符合角色性格",
+                "✓ 有明确的功能目的",
+                "✓ 有潜台词或言外之意",
+                "✓ 避免流水账对话"
+            ],
+            "min_relevance_score": 6,
+            "auto_import": true
+        },
+        "mythology": {
+            "name": "神话知识",
+            "description": "各文化神话体系、神祇、传说、融合技巧等",
+            "required_fields": [
+                "神话名称",
+                "核心神祇",
+                "宇宙观",
+                "适合题材"
+            ],
+            "keywords": [
+                "神话",
+                "神祇",
+                "传说",
+                "宗教",
+                "克苏鲁",
+                "希腊",
+                "北欧"
+            ],
+            "examples": [
+                "北欧神话体系详解",
+                "如何融合多个神话体系",
+                "希腊神话体系分析"
+            ],
+            "quality_checklist": [
+                "✓ 有准确的神话知识",
+                "✓ 有改编建议",
+                "✓ 有适用题材说明",
+                "✓ 避免照搬原典"
+            ],
+            "min_relevance_score": 7,
+            "auto_import": false
+        },
+        "ip_case_studies": {
+            "name": "IP案例分析",
+            "description": "热门小说、游戏、影视IP的世界观分析",
+            "required_fields": [
+                "IP名称",
+                "核心特色",
+                "成功要素",
+                "可借鉴点"
+            ],
+            "keywords": [
+                "案例",
+                "IP",
+                "分析",
+                "诡秘之主",
+                "凡人修仙",
+                "道诡异仙"
+            ],
+            "examples": [
+                "《诡秘之主》世界观分析",
+                "热门IP成功要素分析",
+                "修仙小说经典案例"
+            ],
+            "quality_checklist": [
+                "✓ 有深度的世界观分析",
+                "✓ 有成功要素提炼",
+                "✓ 有可操作的借鉴点",
+                "✓ 有局限性说明"
+            ],
+            "min_relevance_score": 8,
+            "auto_import": false
+        },
+        "templates": {
+            "name": "设定模板",
+            "description": "各种小说设定的模板和框架",
+            "required_fields": [
+                "模板名称",
+                "核心要素",
+                "填写说明",
+                "示例"
+            ],
+            "keywords": [
+                "模板",
+                "框架",
+                "大纲",
+                "设定表",
+                "架构"
+            ],
+            "examples": [
+                "力量体系设计模板",
+                "角色设定卡模板",
+                "大纲模板"
+            ],
+            "quality_checklist": [
+                "✓ 结构清晰完整",
+                "✓ 要点覆盖全面",
+                "✓ 有填写示例",
+                "✓ 便于实际使用"
+            ],
+            "min_relevance_score": 5,
+            "auto_import": true
+        },
+        "genresearch": {
+            "name": "泛研究资料",
+            "description": "历史、文化、科学等泛创作研究资料",
+            "required_fields": [
+                "主题",
+                "核心知识点",
+                "创作应用",
+                "参考来源"
+            ],
+            "keywords": [
+                "历史",
+                "文化",
+                "科学",
+                "冷知识",
+                "背景资料"
+            ],
+            "examples": [
+                "古代官制研究资料",
+                "中世纪社会生活细节",
+                "古代战争战术分析"
+            ],
+            "quality_checklist": [
+                "✓ 知识准确可靠",
+                "✓ 有创作应用建议",
+                "✓ 避免学术堆砌",
+                "✓ 便于情节融入"
+            ],
+            "min_relevance_score": 6,
+            "auto_import": false
+        },
+        "platform_guides": {
+            "name": "平台指南",
+            "description": "各网文平台的风格特点、规则要求等",
+            "required_fields": [
+                "平台名称",
+                "风格特点",
+                "读者喜好",
+                "写作建议"
+            ],
+            "keywords": [
+                "起点",
+                "番茄",
+                "晋江",
+                "平台",
+                "规则",
+                "风格"
+            ],
+            "examples": [
+                "起点中文网写作指南",
+                "番茄小说平台特点分析",
+                "各平台读者喜好分析"
+            ],
+            "quality_checklist": [
+                "✓ 平台信息准确",
+                "✓ 有针对性的建议",
+                "✓ 避免泛泛而谈",
+                "✓ 包含实操技巧"
+            ],
+            "min_relevance_score": 7,
+            "auto_import": true
+        },
+        "monetization": {
+            "name": "商业化运营",
+            "description": "网文变现、运营技巧、版权运营等",
+            "required_fields": [
+                "变现方式",
+                "核心策略",
+                "实操要点",
+                "注意事项"
+            ],
+            "keywords": [
+                "变现",
+                "收入",
+                "版权",
+                "运营",
+                "订阅",
+                "月票"
+            ],
+            "examples": [
+                "网文作者收入提升技巧",
+                "版权运营基础指南",
+                "均订提升方法"
+            ],
+            "quality_checklist": [
+                "✓ 方法可操作",
+                "✓ 有数据支撑",
+                "✓ 包含具体案例",
+                "✓ 时效性合理"
+            ],
+            "min_relevance_score": 6,
+            "auto_import": false
+        },
+        "summary": {
+            "name": "总结归纳",
+            "description": "创作方法论的总结和归纳",
+            "required_fields": [
+                "主题",
+                "核心观点",
+                "要点提炼",
+                "实践建议"
+            ],
+            "keywords": [
+                "总结",
+                "归纳",
+                "核心",
+                "要点",
+                "方法论"
+            ],
+            "examples": [
+                "网文写作核心要点总结",
+                "创作方法论归纳",
+                "写作技巧大盘点"
+            ],
+            "quality_checklist": [
+                "✓ 观点独到深刻",
+                "✓ 要点精炼准确",
+                "✓ 有实践指导意义",
+                "✓ 避免陈词滥调"
+            ],
+            "min_relevance_score": 7,
+            "auto_import": true
+        }
+    },
+    "quality_standards": {
+        "auto_import_threshold": 8,
+        "manual_review_threshold": 6,
+        "reject_threshold": 5,
+        "min_content_length": 50,
+        "max_duplication_score": 0.8
+    },
+    "update_rules": {
+        "replace_when": [
+            "新内容全面优于旧内容",
+            "新内容更完整准确",
+            "新内容时效性更强"
+        ],
+        "merge_when": [
+            "新旧各有优势",
+            "新内容部分有价值",
+            "可形成互补"
+        ],
+        "keep_both_when": [
+            "角度不同",
+            "深度不同",
+            "各有适用场景"
+        ]
+    }
+}

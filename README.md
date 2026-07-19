@@ -77,10 +77,12 @@
 
 ## 安装方法
 
-### 1. 安装依赖
+### 1. 创建虚拟环境并安装依赖
 
 ```bash
-pip install -r requirements.txt
+python -m venv .venv
+# Windows PowerShell
+.venv\\Scripts\\python -m pip install -r requirements.txt
 ```
 
 ### 2. 配置MCP客户端
@@ -107,6 +109,18 @@ pip install -r requirements.txt
 ```bash
 python server.py
 ```
+
+### 开发与验证
+
+```bash
+.venv\\Scripts\\python -m pip install -r requirements-dev.txt
+.venv\\Scripts\\python -m compileall -q .
+.venv\\Scripts\\python verify_setup.py
+.venv\\Scripts\\python -m pytest -q
+```
+
+贡献、安全响应和内容来源规则见 [CONTRIBUTING.md](CONTRIBUTING.md)、
+[SECURITY.md](SECURITY.md) 与 [CONTENT_POLICY.md](CONTENT_POLICY.md)。
 
 ## 使用示例
 
@@ -255,7 +269,8 @@ novel-creation-mcp/
 
 ## 知识来源
 
-本工具整合了多个B站教学视频合集的内容：
+本工具的知识条目必须遵守 [内容与来源政策](CONTENT_POLICY.md)。以下来源仅用于说明
+研究方向；仓库不会镜像或重新发布原视频、字幕、课程或受版权保护的小说内容：
 - **拆技巧合集**（尘三昧）：BE美学、碎片化叙事、意识流等
 - **囤素材 抠设定合集**（尘三昧）：素材管理、世界观构建
 - **神话地图合集**（馆长刘下饭）：30+全球神话体系

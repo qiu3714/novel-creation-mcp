@@ -675,7 +675,7 @@ def generate_markdown_report(report: Dict, output_path: str):
     chapter_samples = report.get('chapter_sample_analysis', [])
     if chapter_samples:
         for chapter in chapter_samples[:20]:
-        md += f"""
+            md += f"""
 
 ### 第{chapter['chapter_number']}章 {chapter['chapter_title']}
 

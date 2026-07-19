@@ -1,0 +1,27 @@
+name: Bug report
+description: Report a reproducible problem in the MCP server.
+title: "bug: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "Do not include credentials, private manuscripts, or copyrighted material you cannot share."
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      placeholder: "1. Configure the server...\n2. Call the tool...\n3. Observe..."
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Python version, operating system, and MCP client
+    validations:
+      required: true

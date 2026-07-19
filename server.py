@@ -922,7 +922,7 @@ def _handle_suggest_titles(arguments):
     if not pattern_data:
         for key in TITLE_PATTERNS:
             if genre in key or key in genre:
-                pattern_data = TITLE_PATTERSES[key]
+                pattern_data = TITLE_PATTERNS[key]
                 genre = key
                 break
 

@@ -27,3 +27,7 @@ Every future knowledge-source import must record its source URL, licence or
 reuse basis, date checked, and a concise statement of what was transformed.
 When that evidence is unavailable, the material must not be added to the
 public repository.
+
+Current source-audit notes are kept in `SOURCE_AUDIT.md`. Unverified references
+may be recorded there as risks or audit leads, but they must not be advertised
+as bundled, redistributable project content until the review rule is satisfied.

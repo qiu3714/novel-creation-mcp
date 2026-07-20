@@ -1,0 +1,49 @@
+name: Content/source review
+description: Report a content-source, licensing, privacy, or attribution concern.
+title: "content: "
+labels: [content-review]
+body:
+  - type: markdown
+    attributes:
+      value: "Do not paste credentials, private manuscripts, personal data, or substantial copyrighted excerpts. Provide links or short descriptions instead."
+  - type: textarea
+    id: summary
+    attributes:
+      label: Concern summary
+      description: What content, source, attribution, or privacy issue should be reviewed?
+    validations:
+      required: true
+  - type: input
+    id: affected_files
+    attributes:
+      label: Affected file or area
+      placeholder: "README.md, knowledge/..., scripts/..."
+    validations:
+      required: true
+  - type: dropdown
+    id: concern_type
+    attributes:
+      label: Concern type
+      options:
+        - Unverified source or missing reuse basis
+        - Copyright or licence risk
+        - Privacy or private manuscript risk
+        - Credential or secret exposure
+        - Attribution problem
+        - Other content-policy issue
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence or context
+      description: Provide URLs, short excerpts under fair-use limits, or reproduction context.
+    validations:
+      required: false
+  - type: textarea
+    id: proposed_resolution
+    attributes:
+      label: Suggested resolution
+      description: What should be clarified, isolated, replaced, or documented?
+    validations:
+      required: false

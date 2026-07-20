@@ -21,6 +21,12 @@ env/
 
 # Environment variables
 .env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
 
 # Logs
 logs/

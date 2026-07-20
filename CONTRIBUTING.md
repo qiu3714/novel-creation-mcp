@@ -16,6 +16,14 @@
   changes.
 - Preserve the project content policy; do not submit copied works, extensive
   excerpts, or datasets without a redistributable licence.
+- Follow `CODE_OF_CONDUCT.md` in issues, pull requests, and reviews.
+
+## Content-source changes
+
+Every new public knowledge item must record its source URL, licence or reuse
+basis, date checked, and a concise statement of what was transformed. If that
+evidence is missing, open a content/source review issue instead of adding the
+material to the repository.
 
 ## Development checks
 
@@ -24,4 +32,5 @@ Run the available checks before requesting review:
 ```powershell
 python -m compileall -q .
 python verify_setup.py
+python -m pytest -q
 ```

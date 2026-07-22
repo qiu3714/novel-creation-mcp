@@ -102,13 +102,29 @@ def get_cache_info():
 # 通用搜索辅助
 # ============================================================
 
+def _normalize_arguments(arguments):
+    return arguments if isinstance(arguments, dict) else {}
+
+
+def _get_text_argument(arguments, key, default=""):
+    value = _normalize_arguments(arguments).get(key, default)
+    if value is None:
+        return default
+    text = str(value).strip()
+    return text if text else default
+
+
 def _search_in_data(data, query, path=""):
+    query_text = str(query).lower()
+    if not query_text:
+        return []
+
     results = []
     if isinstance(data, dict):
         for k, v in data.items():
             current_path = f"{path}.{k}" if path else k
             if isinstance(v, str):
-                if query.lower() in k.lower() or query.lower() in v.lower():
+                if query_text in k.lower() or query_text in v.lower():
                     results.append({"path": current_path, "content": v[:200]})
             elif isinstance(v, (dict, list)):
                 results.extend(_search_in_data(v, query, current_path))
@@ -116,12 +132,12 @@ def _search_in_data(data, query, path=""):
         for i, item in enumerate(data):
             current_path = f"{path}[{i}]"
             if isinstance(item, str):
-                if query.lower() in item.lower():
+                if query_text in item.lower():
                     results.append({"path": current_path, "content": item[:200]})
             elif isinstance(item, dict):
                 title = item.get("title", item.get("name", ""))
                 content = item.get("content", item.get("summary", item.get("description", "")))
-                if query.lower() in str(title).lower() or query.lower() in str(content).lower():
+                if query_text in str(title).lower() or query_text in str(content).lower():
                     results.append({
                         "path": current_path,
                         "title": title,
@@ -369,6 +385,7 @@ async def list_tools():
 
 @app.call_tool()
 async def call_tool(name: str, arguments: dict):
+    arguments = _normalize_arguments(arguments)
     kb = load_knowledge()
 
     if name == "search_knowledge":
@@ -404,8 +421,8 @@ async def call_tool(name: str, arguments: dict):
 # ============================================================
 
 def _handle_search(kb, arguments):
-    query = arguments.get("query", "")
-    section = arguments.get("section", None)
+    query = _get_text_argument(arguments, "query")
+    section = _get_text_argument(arguments, "section", None)
 
     if not query:
         return [TextContent(type="text", text="请提供搜索关键词")]
@@ -464,7 +481,7 @@ def _handle_search(kb, arguments):
 # ============================================================
 
 def _handle_case_study(kb, arguments):
-    title = arguments.get("title", "")
+    title = _get_text_argument(arguments, "title")
     if not title:
         return [TextContent(type="text", text="请提供小说标题")]
 
@@ -517,7 +534,7 @@ def _handle_case_study(kb, arguments):
 # ============================================================
 
 def _handle_mythology(kb, arguments):
-    culture = arguments.get("culture", "")
+    culture = _get_text_argument(arguments, "culture")
     if not culture:
         return [TextContent(type="text", text="请提供神话体系名称")]
 
@@ -571,7 +588,7 @@ def _handle_mythology(kb, arguments):
 # ============================================================
 
 def _handle_template(kb, arguments):
-    template_type = arguments.get("template_type", "")
+    template_type = _get_text_argument(arguments, "template_type")
     if not template_type:
         return [TextContent(type="text", text="请提供模板类型")]
 
@@ -639,7 +656,7 @@ def _handle_template(kb, arguments):
 # ============================================================
 
 def _handle_methodology(arguments):
-    topic = arguments.get("topic", "")
+    topic = _get_text_argument(arguments, "topic")
     if not topic:
         available = ", ".join(WRITING_METHODOLOGY.keys())
         return [TextContent(type="text", text=f"可用方法论主题：{available}")]
@@ -677,7 +694,7 @@ def _handle_methodology(arguments):
 # ============================================================
 
 def _handle_worldbuilding(arguments):
-    world_type = arguments.get("world_type", "")
+    world_type = _get_text_argument(arguments, "world_type")
     if not world_type:
         available = ", ".join(WORLD_TEMPLATES.keys())
         return [TextContent(type="text", text=f"可用世界观类型：{available}")]
@@ -720,7 +737,7 @@ def _handle_worldbuilding(arguments):
 # ============================================================
 
 def _handle_power_system(arguments):
-    desc = arguments.get("system_description", "")
+    desc = _get_text_argument(arguments, "system_description")
     if not desc:
         return [TextContent(type="text", text="请提供力量体系描述")]
 
@@ -762,8 +779,8 @@ def _handle_power_system(arguments):
 # ============================================================
 
 def _handle_character(arguments):
-    archetype = arguments.get("archetype", "主角")
-    genre = arguments.get("genre", "玄幻")
+    archetype = _get_text_argument(arguments, "archetype", "主角")
+    genre = _get_text_argument(arguments, "genre", "玄幻")
 
     template = CHARACTER_ARCHETYPES.get(archetype)
     if not template:
@@ -820,8 +837,8 @@ def _handle_character(arguments):
 # ============================================================
 
 def _handle_plot(arguments):
-    plot_type = arguments.get("plot_type", "英雄之旅")
-    genre = arguments.get("genre", "玄幻")
+    plot_type = _get_text_argument(arguments, "plot_type", "英雄之旅")
+    genre = _get_text_argument(arguments, "genre", "玄幻")
 
     template = PLOT_TYPES.get(plot_type)
     if not template:
@@ -860,7 +877,7 @@ def _handle_plot(arguments):
 # ============================================================
 
 def _handle_analyze_writing(arguments):
-    text = arguments.get("text", "")
+    text = _get_text_argument(arguments, "text")
     if not text:
         return [TextContent(type="text", text="请提供要分析的文本或技法术语")]
 
@@ -915,8 +932,8 @@ def _handle_analyze_writing(arguments):
 # ============================================================
 
 def _handle_suggest_titles(arguments):
-    genre = arguments.get("genre", "玄幻仙侠")
-    theme = arguments.get("theme", "")
+    genre = _get_text_argument(arguments, "genre", "玄幻仙侠")
+    theme = _get_text_argument(arguments, "theme")
 
     pattern_data = TITLE_PATTERNS.get(genre)
     if not pattern_data:
@@ -961,7 +978,7 @@ def _handle_suggest_titles(arguments):
 # ============================================================
 
 def _handle_dialogue(arguments):
-    scenario = arguments.get("scenario", "")
+    scenario = _get_text_argument(arguments, "scenario")
     if not scenario:
         return [TextContent(type="text", text=f"可用对话场景：{', '.join(DIALOGUE_TEMPLATES.keys())}")]
 

@@ -37,6 +37,8 @@ python -m venv .venv
 .venv\\Scripts\\python -m pip install -r requirements.txt
 ```
 
+依赖解析受 `constraints.txt` 约束；开发环境和 CI 都使用同一组版本边界。
+
 ### 2. 配置MCP客户端
 
 在支持MCP的客户端（如Claude Desktop、Cursor等）中添加以下配置：
@@ -66,6 +68,7 @@ python server.py
 
 ```bash
 .venv\\Scripts\\python -m pip install -r requirements-dev.txt
+.venv\\Scripts\\python -m pip check
 .venv\\Scripts\\python -m compileall -q .
 .venv\\Scripts\\python verify_setup.py
 .venv\\Scripts\\python -m pytest -q

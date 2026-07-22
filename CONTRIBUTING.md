@@ -30,7 +30,10 @@ material to the repository.
 Run the available checks before requesting review:
 
 ```powershell
-python -m compileall -q .
-python verify_setup.py
-python -m pytest -q
+python -m venv .venv
+.\.venv\Scripts\python -m pip install -r requirements-dev.txt
+.\.venv\Scripts\python -m pip check
+.\.venv\Scripts\python -m compileall -q .
+.\.venv\Scripts\python verify_setup.py
+.\.venv\Scripts\python -m pytest -q
 ```

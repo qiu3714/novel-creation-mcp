@@ -119,7 +119,7 @@ SCHEDULER_CONFIG = {
 # MCP服务器配置
 MCP_SERVER_CONFIG = {
     "name": "novel-creation-mcp",
-    "version": "3.0.0",
+    "version": "3.0.0-rc.1",
     "description": "小说创作MCP工具",
     "tools": [
         "search_knowledge",

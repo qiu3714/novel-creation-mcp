@@ -36,7 +36,9 @@ logs/
 backups/
 
 # Reports (generated)
-reports/
+reports/*
+!reports/
+!reports/release-readiness-*.md
 
 # OS files
 .DS_Store

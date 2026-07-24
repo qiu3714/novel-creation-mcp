@@ -2,6 +2,10 @@
 
 一个基于 MCP (Model Context Protocol) 协议的小说创作辅助工具，提供角色设定、情节设计、世界观构建、写作技法和内容检索相关的工具接口。
 
+## 发布状态
+
+当前维护版本为 `3.0.0-rc.1` 候选版本。变更记录见 [CHANGELOG.md](CHANGELOG.md)，发布验收状态见 [reports/release-readiness-2026-07-25.md](reports/release-readiness-2026-07-25.md)。正式 GitHub release 需要先满足 [MAINTENANCE_PLAN.md](MAINTENANCE_PLAN.md) 的 Week 4 验收条件。
+
 ## 功能特性
 
 ### 12个核心工具
@@ -57,6 +61,8 @@ python -m venv .venv
 ```
 
 > 请将 `/path/to/novel-creation-mcp/server.py` 替换为实际的项目路径。
+
+更完整的 Windows、macOS 和 Linux stdio 配置示例见 [docs/MCP_CLIENT_SETUP.md](docs/MCP_CLIENT_SETUP.md)。
 
 ### 3. 启动服务器
 

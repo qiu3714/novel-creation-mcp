@@ -1,6 +1,6 @@
 # Source and repository audit
 
-Last checked: 2026-07-21
+Last checked: 2026-07-28
 
 ## Scope
 
@@ -15,11 +15,18 @@ excluded `.git/`, `.venv/`, and local cache directories.
 - Manual review of `README.md`, `README_自动化任务.md`, `CONTENT_POLICY.md`,
   `CONTRIBUTING.md`, `SECURITY.md`, `.github/`, `knowledge/knowledge-base.json`,
   and `knowledge/collected_content.json`.
+- 2026-07-28 refresh: repeated the sensitive-pattern scan across tracked and
+  non-ignored public files, rechecked README public claims against actual MCP
+  tool registration, and queried current GitHub issue, pull-request, release,
+  tag, and workflow evidence for Week 4 release readiness.
 
 ## Findings
 
 - No obvious hard-coded credential, token, or private key was found in tracked
   files. Matches were limited to policy wording and batch-script syntax.
+- The 2026-07-28 rescan again found no obvious hard-coded credential, token,
+  private key, or password. Matches were limited to policy wording, audit
+  wording, and Windows batch `tokens=*` syntax.
 - `README.md` previously described bundled IP and mythology coverage with exact
   counts that are not supported by the current tracked knowledge files.
   `knowledge/knowledge-base.json` has no `ip_case_studies` or `mythology`

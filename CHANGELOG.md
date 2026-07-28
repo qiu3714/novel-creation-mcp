@@ -4,6 +4,24 @@ All notable project maintenance changes are recorded here. This project follows
 release-candidate notes until the stable-release gates in `MAINTENANCE_PLAN.md`
 are satisfied.
 
+## [Unreleased]
+
+### Added
+
+- Added a Week 4 release-readiness report with current repository signals,
+  community evidence, and Open Source application-safe facts.
+
+### Changed
+
+- Refreshed the README release-status link and source audit timestamp for the
+  2026-07-28 governance pass.
+
+### Release status
+
+- No GitHub release or tag was created in this pass.
+- Stable release remains blocked pending maintainer confirmation of source-risk
+  scope and external release/tag authorization.
+
 ## [3.0.0-rc.1] - 2026-07-25
 
 ### Added

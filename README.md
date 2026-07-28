@@ -4,7 +4,7 @@
 
 ## 发布状态
 
-当前维护版本为 `3.0.0-rc.1` 候选版本。变更记录见 [CHANGELOG.md](CHANGELOG.md)，发布验收状态见 [reports/release-readiness-2026-07-25.md](reports/release-readiness-2026-07-25.md)。正式 GitHub release 需要先满足 [MAINTENANCE_PLAN.md](MAINTENANCE_PLAN.md) 的 Week 4 验收条件。
+当前维护版本为 `3.0.0-rc.1` 候选版本。变更记录见 [CHANGELOG.md](CHANGELOG.md)，最新发布验收和社区证据状态见 [reports/release-readiness-2026-07-28.md](reports/release-readiness-2026-07-28.md)。正式 GitHub release 仍需要维护者确认来源风险范围并授权发布写入。
 
 ## 功能特性
 

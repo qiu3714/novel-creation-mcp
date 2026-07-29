@@ -61,8 +61,23 @@ def load_collected_content():
             with open(COLLECTED_FILE, "r", encoding="utf-8") as f:
                 _collected_cache = json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
-            _collected_cache = {"metadata": {}, "content": []}
+            _collected_cache = {"metadata": {}, "collected_content": []}
     return _collected_cache
+
+
+def _get_collected_items(collected):
+    if not isinstance(collected, dict):
+        return []
+    items = collected.get("collected_content")
+    if items is None:
+        items = collected.get("content", [])
+    return items if isinstance(items, list) else []
+
+
+def _get_collected_item_key(item):
+    if not isinstance(item, dict):
+        return str(item)
+    return item.get("id") or item.get("title") or str(item)
 
 
 def load_knowledge():
@@ -70,11 +85,12 @@ def load_knowledge():
     kb = load_main_knowledge()
     if not _cache_loaded:
         collected = load_collected_content()
-        if collected.get("content"):
+        collected_items = _get_collected_items(collected)
+        if collected_items:
             if "collected_content" not in kb:
                 kb["collected_content"] = []
-            existing_ids = {item.get("id") for item in kb.get("collected_content", [])}
-            new_items = [item for item in collected["content"] if item.get("id") not in existing_ids]
+            existing_keys = {_get_collected_item_key(item) for item in kb.get("collected_content", [])}
+            new_items = [item for item in collected_items if _get_collected_item_key(item) not in existing_keys]
             if new_items:
                 kb["collected_content"].extend(new_items)
         _cache_loaded = True
@@ -94,7 +110,7 @@ def get_cache_info():
         "main_kb_cached": _kb_cache is not None,
         "collected_cached": _collected_cache is not None,
         "main_kb_sections": list(_kb_cache.keys()) if _kb_cache else [],
-        "collected_count": len(_collected_cache.get("content", [])) if _collected_cache else 0
+        "collected_count": len(_get_collected_items(_collected_cache)) if _collected_cache else 0
     }
 
 
@@ -420,6 +436,70 @@ async def call_tool(name: str, arguments: dict):
 # search_knowledge
 # ============================================================
 
+def _normalize_collected_item(item):
+    if not isinstance(item, dict):
+        return None
+
+    content = item.get("content")
+    if isinstance(content, dict):
+        title = content.get("title") or item.get("title") or ""
+        summary = (
+            content.get("summary")
+            or content.get("content_summary")
+            or content.get("description")
+            or ""
+        )
+        content_type = item.get("content_type") or content.get("content_type") or content.get("type") or ""
+        search_text = f"{title} {summary} {content} {item.get('section', '')} {content_type}"
+    else:
+        title = item.get("title", "")
+        summary = item.get("content_summary") or item.get("summary") or item.get("description") or ""
+        content_type = item.get("content_type") or item.get("type") or ""
+        search_parts = [
+            title,
+            summary,
+            item.get("section", ""),
+            content_type,
+            item.get("platform", ""),
+            item.get("source_reference", ""),
+            item.get("key_points", ""),
+            item.get("keywords", ""),
+        ]
+        search_text = " ".join(str(part) for part in search_parts)
+
+    return {
+        "path": f"collected_content.{item.get('id', '')}",
+        "title": title,
+        "content": str(summary)[:200],
+        "type": content_type,
+        "section": item.get("section"),
+        "search_text": search_text,
+    }
+
+
+def _search_collected_items(items, query, section=None):
+    query_text = query.lower()
+    results = []
+    for item in items:
+        normalized = _normalize_collected_item(item)
+        if not normalized:
+            continue
+        if section:
+            item_section = normalized.get("section")
+            if item_section and item_section != section:
+                continue
+            if not item_section and _classify_content(normalized["search_text"]) != section:
+                continue
+        if query_text in normalized["search_text"].lower():
+            results.append({
+                "path": normalized["path"],
+                "title": normalized["title"],
+                "content": normalized["content"],
+                "type": normalized["type"],
+            })
+    return results
+
+
 def _handle_search(kb, arguments):
     query = _get_text_argument(arguments, "query")
     section = _get_text_argument(arguments, "section", None)
@@ -431,33 +511,13 @@ def _handle_search(kb, arguments):
     if section:
         if section in kb:
             results.extend(_search_in_data(kb[section], query, section))
-        else:
-            collected = kb.get("collected_content", [])
-            for item in collected:
-                if item.get("section") == section:
-                    content = item.get("content", {})
-                    if query.lower() in str(content).lower():
-                        results.append({
-                            "path": f"collected_content.{item.get('id', '')}",
-                            "title": content.get("title", ""),
-                            "content": str(content.get("summary", ""))[:200],
-                            "type": item.get("content_type", "")
-                        })
+        results.extend(_search_collected_items(kb.get("collected_content", []), query, section))
     else:
         for key in kb:
             if key == "collected_content":
                 continue
             results.extend(_search_in_data(kb[key], query, key))
-        collected = kb.get("collected_content", [])
-        for item in collected:
-            content = item.get("content", {})
-            if query.lower() in str(content).lower():
-                results.append({
-                    "path": f"collected_content.{item.get('id', '')}",
-                    "title": content.get("title", ""),
-                    "content": str(content.get("summary", ""))[:200],
-                    "type": item.get("content_type", "")
-                })
+        results.extend(_search_collected_items(kb.get("collected_content", []), query))
 
     if not results:
         return [TextContent(type="text", text=f"未找到与'{query}'相关的内容。请尝试其他关键词。")]

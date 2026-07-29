@@ -1,4 +1,5 @@
 import asyncio
+import json
 
 import pytest
 
@@ -19,6 +20,14 @@ PUBLIC_TOOL_CASES = [
     ("suggest_titles", {"genre": "玄幻", "theme": "命运"}),
     ("generate_dialogue", {"scenario": "冲突对话"}),
 ]
+
+
+@pytest.fixture(autouse=True)
+def reset_server_cache():
+    yield
+    server._kb_cache = None
+    server._collected_cache = None
+    server._cache_loaded = False
 
 
 def test_registers_expected_public_tools():
@@ -76,3 +85,38 @@ def test_search_coerces_non_string_query():
     )
 
     assert "找到 1 条相关内容" in response[0].text
+
+
+def test_search_includes_collector_output_shape(tmp_path, monkeypatch):
+    kb_file = tmp_path / "knowledge-base.json"
+    collected_file = tmp_path / "collected_content.json"
+    kb_file.write_text(json.dumps({"metadata": {}, "summary": {}}), encoding="utf-8")
+    collected_file.write_text(
+        json.dumps(
+            {
+                "metadata": {"total_items": 1},
+                "collected_content": [
+                    {
+                        "id": "cc_test_001",
+                        "title": "人物弧光设计",
+                        "content_type": "教程",
+                        "content_summary": "角色成长需要清晰的起点、转折和选择代价。",
+                        "key_points": ["角色成长", "选择代价"],
+                        "keywords": ["角色", "人物弧线"],
+                    }
+                ],
+            },
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+
+    monkeypatch.setattr(server, "KB_FILE", kb_file)
+    monkeypatch.setattr(server, "COLLECTED_FILE", collected_file)
+
+    kb = server.reload_cache()
+    response = server._handle_search(kb, {"query": "选择代价", "section": "character_design"})
+
+    assert server.get_cache_info()["collected_count"] == 1
+    assert "collected_content.cc_test_001" in response[0].text
+    assert "人物弧光设计" in response[0].text

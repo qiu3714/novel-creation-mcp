@@ -1,6 +1,6 @@
 # Source and repository audit
 
-Last checked: 2026-07-28
+Last checked: 2026-07-31
 
 ## Scope
 
@@ -19,6 +19,11 @@ excluded `.git/`, `.venv/`, and local cache directories.
   non-ignored public files, rechecked README public claims against actual MCP
   tool registration, and queried current GitHub issue, pull-request, release,
   tag, and workflow evidence for Week 4 release readiness.
+- 2026-07-31 refresh: repeated the sensitive-pattern scan, reviewed README
+  installation steps, changelog, MCP client setup documentation, and
+  `MCP_SERVER_CONFIG.version`, then queried current GitHub issue, pull-request,
+  release, tag, repository, and workflow evidence for Week 4 application
+  readiness.
 
 ## Findings
 
@@ -27,6 +32,9 @@ excluded `.git/`, `.venv/`, and local cache directories.
 - The 2026-07-28 rescan again found no obvious hard-coded credential, token,
   private key, or password. Matches were limited to policy wording, audit
   wording, and Windows batch `tokens=*` syntax.
+- The 2026-07-31 rescan again found no obvious hard-coded credential, token,
+  private key, or password. Matches were limited to policy wording, audit
+  wording, release-authorization wording, and Windows batch `tokens=*` syntax.
 - `README.md` previously described bundled IP and mythology coverage with exact
   counts that are not supported by the current tracked knowledge files.
   `knowledge/knowledge-base.json` has no `ip_case_studies` or `mythology`

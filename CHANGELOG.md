@@ -10,11 +10,15 @@ are satisfied.
 
 - Added a Week 4 release-readiness report with current repository signals,
   community evidence, and Open Source application-safe facts.
+- Added a 2026-07-31 Week 4 readiness refresh with latest issue, pull-request,
+  release, tag, CI, and application-draft evidence.
 
 ### Changed
 
 - Refreshed the README release-status link and source audit timestamp for the
   2026-07-28 governance pass.
+- Refreshed the README release-status link and source audit timestamp for the
+  2026-07-31 release/community pass.
 
 ### Release status
 

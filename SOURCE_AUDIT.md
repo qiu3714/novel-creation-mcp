@@ -1,6 +1,6 @@
 # Source and repository audit
 
-Last checked: 2026-07-31
+Last checked: 2026-08-03
 
 ## Scope
 
@@ -24,6 +24,10 @@ excluded `.git/`, `.venv/`, and local cache directories.
   `MCP_SERVER_CONFIG.version`, then queried current GitHub issue, pull-request,
   release, tag, repository, and workflow evidence for Week 4 application
   readiness.
+- 2026-08-03 refresh: repeated the sensitive-pattern scan, rechecked README
+  examples and MCP tool schema descriptions against actual knowledge files, and
+  queried current GitHub repository, release, and tag evidence for Monday
+  governance maintenance.
 
 ## Findings
 
@@ -35,6 +39,12 @@ excluded `.git/`, `.venv/`, and local cache directories.
 - The 2026-07-31 rescan again found no obvious hard-coded credential, token,
   private key, or password. Matches were limited to policy wording, audit
   wording, release-authorization wording, and Windows batch `tokens=*` syntax.
+- The 2026-08-03 rescan again found no obvious hard-coded credential, token,
+  private key, or password. Matches were limited to policy wording, audit
+  wording, release-authorization wording, and Windows batch `tokens=*` syntax.
+- README examples and MCP schema descriptions were tightened to avoid implying
+  that specific third-party IP cases or mythology systems are bundled as
+  redistributable project content.
 - `README.md` previously described bundled IP and mythology coverage with exact
   counts that are not supported by the current tracked knowledge files.
   `knowledge/knowledge-base.json` has no `ip_case_studies` or `mythology`
@@ -49,9 +59,9 @@ excluded `.git/`, `.venv/`, and local cache directories.
 
 ## Open risks
 
-- Static examples refer to third-party titles and IP names as nominative
-  examples. Do not expand those references into detailed summaries or excerpts
-  without source and reuse evidence.
+- Static examples in internal data still refer to third-party titles as
+  nominative examples. Do not expand those references into detailed summaries or
+  excerpts without source and reuse evidence.
 - The collector documentation lists third-party platforms. Platform names and
   configurations do not establish permission to scrape, store, or redistribute
   content.

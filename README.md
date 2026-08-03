@@ -93,16 +93,16 @@ search_knowledge(query="如何写反派角色")
 search_knowledge(query="伏笔设计", section="plot_structure")
 ```
 
-### 获取IP案例分析
+### 查询可再分发案例条目
 
 ```
-get_case_study(title="斗破苍穹")
+get_case_study(title="示例作品标题")
 ```
 
-### 获取神话体系
+### 查询神话素材条目
 
 ```
-get_mythology(culture="希腊神话")
+get_mythology(culture="示例文化体系")
 ```
 
 ### 获取设定模板

@@ -19,6 +19,8 @@ are satisfied.
   2026-07-28 governance pass.
 - Refreshed the README release-status link and source audit timestamp for the
   2026-07-31 release/community pass.
+- Replaced README and MCP schema examples that named specific third-party IP or
+  mythology entries with source-policy-neutral placeholders.
 
 ### Release status
 

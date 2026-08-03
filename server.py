@@ -4,8 +4,8 @@
 
 提供小说创作相关的MCP工具，包括：
 - search_knowledge: 搜索知识库
-- get_case_study: 获取案例分析
-- get_mythology: 获取神话传说素材
+- get_case_study: 查询可再分发案例分析
+- get_mythology: 查询可再分发神话或世界观素材
 - get_template: 获取写作模板
 - get_methodology: 获取写作方法论
 - generate_worldbuilding_prompt: 生成世界观构建提示词
@@ -228,13 +228,13 @@ async def list_tools():
         ),
         Tool(
             name="get_case_study",
-            description="获取经典网文案例分析，包括成功要素、写作技巧、可借鉴之处等",
+            description="查询已记录且可再分发的案例分析，包括成功要素、写作技巧、可借鉴之处等",
             inputSchema={
                 "type": "object",
                 "properties": {
                     "title": {
                         "type": "string",
-                        "description": "小说标题，如'斗破苍穹'、'全职高手'、'庆余年'等"
+                        "description": "已记录案例标题；新增条目必须满足项目内容来源政策"
                     }
                 },
                 "required": ["title"]
@@ -242,13 +242,13 @@ async def list_tools():
         ),
         Tool(
             name="get_mythology",
-            description="获取神话传说素材，用于世界观构建和角色设计",
+            description="查询已记录且可再分发的神话或世界观素材，用于世界观构建和角色设计",
             inputSchema={
                 "type": "object",
                 "properties": {
                     "culture": {
                         "type": "string",
-                        "description": "神话体系：中国神话、北欧神话、希腊神话、日本神话、印度神话等"
+                        "description": "已记录文化或素材体系名称；新增条目必须包含来源和复用依据"
                     }
                 },
                 "required": ["culture"]

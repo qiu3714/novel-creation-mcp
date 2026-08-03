@@ -9,7 +9,7 @@ import server
 PUBLIC_TOOL_CASES = [
     ("search_knowledge", {"query": "角色"}),
     ("get_case_study", {"title": "不存在的案例"}),
-    ("get_mythology", {"culture": "希腊神话"}),
+    ("get_mythology", {"culture": "示例文化体系"}),
     ("get_template", {"template_type": "力量体系"}),
     ("get_methodology", {"topic": "角色塑造"}),
     ("generate_worldbuilding_prompt", {"world_type": "修仙世界"}),

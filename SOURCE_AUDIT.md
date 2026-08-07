@@ -1,6 +1,6 @@
 # Source and repository audit
 
-Last checked: 2026-08-03
+Last checked: 2026-08-08
 
 ## Scope
 
@@ -28,6 +28,11 @@ excluded `.git/`, `.venv/`, and local cache directories.
   examples and MCP tool schema descriptions against actual knowledge files, and
   queried current GitHub repository, release, and tag evidence for Monday
   governance maintenance.
+- 2026-08-08 refresh: repeated the sensitive-pattern scan, reviewed README
+  installation steps, changelog, MCP client setup documentation,
+  `MCP_SERVER_CONFIG.version`, tool schema registration, knowledge-file
+  structure, and queried current GitHub issue, pull-request, release, tag,
+  repository, and workflow evidence for release/community maintenance.
 
 ## Findings
 
@@ -42,6 +47,10 @@ excluded `.git/`, `.venv/`, and local cache directories.
 - The 2026-08-03 rescan again found no obvious hard-coded credential, token,
   private key, or password. Matches were limited to policy wording, audit
   wording, release-authorization wording, and Windows batch `tokens=*` syntax.
+- The 2026-08-08 rescan again found no obvious hard-coded credential, token,
+  private key, or password. Matches were limited to policy wording, audit
+  wording, release-readiness wording, issue-template wording, and Windows batch
+  `tokens=*` syntax.
 - README examples and MCP schema descriptions were tightened to avoid implying
   that specific third-party IP cases or mythology systems are bundled as
   redistributable project content.
@@ -56,6 +65,9 @@ excluded `.git/`, `.venv/`, and local cache directories.
 - Collection and analysis scripts can create or ingest external content. Any
   generated knowledge content must pass `CONTENT_POLICY.md` before being
   committed to the public repository.
+- `knowledge/collected_content.json` retains historical metadata, but its
+  current public `collected_content` array is empty and should not be counted
+  as public adoption or redistribution evidence.
 
 ## Open risks
 

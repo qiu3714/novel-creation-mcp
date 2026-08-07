@@ -4,7 +4,7 @@
 
 ## 发布状态
 
-当前维护版本为 `3.0.0-rc.1` 候选版本。变更记录见 [CHANGELOG.md](CHANGELOG.md)，最新发布验收和社区证据状态见 [reports/release-readiness-2026-07-31.md](reports/release-readiness-2026-07-31.md)。正式 GitHub release 仍需要维护者确认来源风险范围并授权发布写入。
+当前维护版本为 `3.0.0-rc.1` 候选版本。变更记录见 [CHANGELOG.md](CHANGELOG.md)，最新发布验收和社区证据状态见 [reports/release-readiness-2026-08-08.md](reports/release-readiness-2026-08-08.md)。正式 GitHub release 仍需要维护者确认来源风险范围并授权发布写入。
 
 ## 功能特性
 
@@ -35,10 +35,18 @@
 
 ### 1. 创建虚拟环境并安装依赖
 
-```bash
+Windows PowerShell:
+
+```powershell
 python -m venv .venv
-# Windows PowerShell
-.venv\\Scripts\\python -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+macOS 或 Linux:
+
+```bash
+python3 -m venv .venv
+./.venv/bin/python -m pip install -r requirements.txt
 ```
 
 依赖解析受 `constraints.txt` 约束；开发环境和 CI 都使用同一组版本边界。
@@ -70,14 +78,20 @@ python -m venv .venv
 python server.py
 ```
 
+在 Windows PowerShell 中，建议直接使用虚拟环境解释器：
+
+```powershell
+.\.venv\Scripts\python.exe server.py
+```
+
 ### 开发与验证
 
-```bash
-.venv\\Scripts\\python -m pip install -r requirements-dev.txt
-.venv\\Scripts\\python -m pip check
-.venv\\Scripts\\python -m compileall -q .
-.venv\\Scripts\\python verify_setup.py
-.venv\\Scripts\\python -m pytest -q
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+.\.venv\Scripts\python.exe -m pip check
+.\.venv\Scripts\python.exe -m compileall -q .
+.\.venv\Scripts\python.exe verify_setup.py
+.\.venv\Scripts\python.exe -m pytest -q
 ```
 
 贡献、安全响应、行为准则和内容来源规则见 [CONTRIBUTING.md](CONTRIBUTING.md)、

@@ -12,6 +12,9 @@ are satisfied.
   community evidence, and Open Source application-safe facts.
 - Added a 2026-07-31 Week 4 readiness refresh with latest issue, pull-request,
   release, tag, CI, and application-draft evidence.
+- Added a 2026-08-08 release/community readiness refresh with latest issue,
+  pull-request, release, tag, CI, documentation, and application-draft
+  evidence.
 
 ### Changed
 
@@ -21,12 +24,17 @@ are satisfied.
   2026-07-31 release/community pass.
 - Replaced README and MCP schema examples that named specific third-party IP or
   mythology entries with source-policy-neutral placeholders.
+- Refreshed the README release-status link and source audit timestamp for the
+  2026-08-08 release/community pass.
+- Updated README Windows PowerShell installation, startup, and verification
+  commands to use the virtual-environment Python executable.
 
 ### Release status
 
-- No GitHub release or tag was created in this pass.
-- Stable release remains blocked pending maintainer confirmation of source-risk
-  scope and external release/tag authorization.
+- No GitHub release or tag was created in this pass because the stable-release
+  gates remain unmet.
+- Stable release remains blocked pending a stable-version decision, maintainer
+  confirmation of source-risk scope, and stable release notes.
 
 ## [3.0.0-rc.1] - 2026-07-25
 

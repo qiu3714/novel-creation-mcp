@@ -39,6 +39,7 @@ backups/
 reports/*
 !reports/
 !reports/release-readiness-*.md
+!reports/governance-audit-*.md
 
 # OS files
 .DS_Store

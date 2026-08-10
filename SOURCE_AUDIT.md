@@ -1,6 +1,6 @@
 # Source and repository audit
 
-Last checked: 2026-08-08
+Last checked: 2026-08-10
 
 ## Scope
 
@@ -33,6 +33,11 @@ excluded `.git/`, `.venv/`, and local cache directories.
   `MCP_SERVER_CONFIG.version`, tool schema registration, knowledge-file
   structure, and queried current GitHub issue, pull-request, release, tag,
   repository, and workflow evidence for release/community maintenance.
+- 2026-08-10 refresh: repeated the sensitive-pattern scan, reviewed README
+  public claims, governance files, issue and pull-request templates, actual MCP
+  tool registration, knowledge-file structure, and queried current GitHub issue,
+  pull-request, release, tag, repository, and workflow evidence for Monday
+  governance/source maintenance.
 
 ## Findings
 
@@ -51,6 +56,15 @@ excluded `.git/`, `.venv/`, and local cache directories.
   private key, or password. Matches were limited to policy wording, audit
   wording, release-readiness wording, issue-template wording, and Windows batch
   `tokens=*` syntax.
+- The 2026-08-10 rescan found no obvious hard-coded credential, token, private
+  key, or password in tracked files. The structured scan intentionally reported
+  only file, line, and rule names, and produced no matches.
+- Governance coverage remains present: `LICENSE`, `CONTRIBUTING.md`,
+  `SECURITY.md`, `CODE_OF_CONDUCT.md`, `CONTENT_POLICY.md`, bug/content-source
+  issue templates, and a pull-request template are tracked.
+- README public claims remain bounded to observable facts: 12 registered MCP
+  tools, no bundled verified external collection entries, no fixed count of IP
+  case studies or mythology systems, and release-candidate status only.
 - README examples and MCP schema descriptions were tightened to avoid implying
   that specific third-party IP cases or mythology systems are bundled as
   redistributable project content.
@@ -80,3 +94,6 @@ excluded `.git/`, `.venv/`, and local cache directories.
 - Future imports need source URL, licence or reuse basis, date checked, and a
   concise transformation note before they can be treated as public knowledge
   content.
+- The 2026-08-10 governance pass did not modify or delete tracked knowledge
+  files; the source-risk boundary remains documentation-only until new content
+  is reviewed under `CONTENT_POLICY.md`.

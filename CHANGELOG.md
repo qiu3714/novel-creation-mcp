@@ -15,6 +15,8 @@ are satisfied.
 - Added a 2026-08-08 release/community readiness refresh with latest issue,
   pull-request, release, tag, CI, documentation, and application-draft
   evidence.
+- Added a 2026-08-10 governance/source audit report with current README,
+  template, source-policy, sensitive-pattern, and repository-signal evidence.
 
 ### Changed
 
@@ -28,6 +30,8 @@ are satisfied.
   2026-08-08 release/community pass.
 - Updated README Windows PowerShell installation, startup, and verification
   commands to use the virtual-environment Python executable.
+- Refreshed the README evidence links and source audit timestamp for the
+  2026-08-10 governance/source pass.
 
 ### Release status
 

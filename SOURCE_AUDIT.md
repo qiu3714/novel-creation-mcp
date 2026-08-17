@@ -1,6 +1,6 @@
 # Source and repository audit
 
-Last checked: 2026-08-10
+Last checked: 2026-08-17
 
 ## Scope
 
@@ -38,6 +38,11 @@ excluded `.git/`, `.venv/`, and local cache directories.
   tool registration, knowledge-file structure, and queried current GitHub issue,
   pull-request, release, tag, repository, and workflow evidence for Monday
   governance/source maintenance.
+- 2026-08-17 refresh: repeated the sensitive-pattern scan across tracked files,
+  reviewed README public claims, governance files, issue and pull-request
+  templates, actual MCP tool registration, knowledge-file structure, and queried
+  current GitHub issue, pull-request, release, tag, repository, and workflow
+  evidence for Monday governance/source maintenance.
 
 ## Findings
 
@@ -59,6 +64,10 @@ excluded `.git/`, `.venv/`, and local cache directories.
 - The 2026-08-10 rescan found no obvious hard-coded credential, token, private
   key, or password in tracked files. The structured scan intentionally reported
   only file, line, and rule names, and produced no matches.
+- The 2026-08-17 rescan found no obvious hard-coded credential, token, private
+  key, password, or sensitive tracked filename in 50 tracked files. The
+  structured scan intentionally reported only file, line, and rule names, and
+  produced no matches.
 - Governance coverage remains present: `LICENSE`, `CONTRIBUTING.md`,
   `SECURITY.md`, `CODE_OF_CONDUCT.md`, `CONTENT_POLICY.md`, bug/content-source
   issue templates, and a pull-request template are tracked.
@@ -95,5 +104,8 @@ excluded `.git/`, `.venv/`, and local cache directories.
   concise transformation note before they can be treated as public knowledge
   content.
 - The 2026-08-10 governance pass did not modify or delete tracked knowledge
+  files; the source-risk boundary remains documentation-only until new content
+  is reviewed under `CONTENT_POLICY.md`.
+- The 2026-08-17 governance pass did not modify or delete tracked knowledge
   files; the source-risk boundary remains documentation-only until new content
   is reviewed under `CONTENT_POLICY.md`.

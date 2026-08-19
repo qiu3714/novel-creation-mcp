@@ -35,5 +35,6 @@ python -m venv .venv
 .\.venv\Scripts\python -m pip check
 .\.venv\Scripts\python -m compileall -q .
 .\.venv\Scripts\python verify_setup.py
+.\.venv\Scripts\python -c "import start_server; start_server.preflight_check()"
 .\.venv\Scripts\python -m pytest -q
 ```

@@ -91,6 +91,7 @@ python server.py
 .\.venv\Scripts\python.exe -m pip check
 .\.venv\Scripts\python.exe -m compileall -q .
 .\.venv\Scripts\python.exe verify_setup.py
+.\.venv\Scripts\python.exe -c "import start_server; start_server.preflight_check()"
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 

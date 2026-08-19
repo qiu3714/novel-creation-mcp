@@ -29,4 +29,5 @@ jobs:
       - run: python -m pip check
       - run: python -m compileall -q .
       - run: python verify_setup.py
+      - run: python -c "import start_server; start_server.preflight_check()"
       - run: python -m pytest -q

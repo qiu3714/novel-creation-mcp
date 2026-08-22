@@ -22,6 +22,9 @@ are satisfied.
   evidence.
 - Added a 2026-08-17 governance/source audit report with current README,
   template, source-policy, sensitive-pattern, and repository-signal evidence.
+- Added a 2026-08-22 release/community readiness refresh with latest issue,
+  pull-request, release, tag, CI, documentation, version, and application-draft
+  evidence.
 
 ### Changed
 
@@ -41,6 +44,8 @@ are satisfied.
   release/community pass.
 - Refreshed the README governance/source audit link and source audit timestamp
   for the 2026-08-17 governance/source pass.
+- Refreshed the README release-readiness link for the 2026-08-22
+  release/community pass.
 
 ### Release status
 

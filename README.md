@@ -4,7 +4,7 @@
 
 ## 发布状态
 
-当前维护版本为 `3.0.0-rc.1` 候选版本。变更记录见 [CHANGELOG.md](CHANGELOG.md)，最新治理和来源审计状态见 [reports/governance-audit-2026-08-17.md](reports/governance-audit-2026-08-17.md)，最近发布验收和社区证据快照见 [reports/release-readiness-2026-08-22.md](reports/release-readiness-2026-08-22.md)。正式 GitHub release 仍需要维护者确认来源风险范围并授权发布写入。
+当前维护版本为 `3.0.0-rc.1` 候选版本。变更记录见 [CHANGELOG.md](CHANGELOG.md)，最新治理和来源审计状态见 [reports/governance-audit-2026-08-24.md](reports/governance-audit-2026-08-24.md)，最近发布验收和社区证据快照见 [reports/release-readiness-2026-08-22.md](reports/release-readiness-2026-08-22.md)。正式 GitHub release 仍需要维护者确认来源风险范围并授权发布写入。
 
 ## 功能特性
 

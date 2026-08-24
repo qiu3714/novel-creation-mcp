@@ -8,6 +8,8 @@ are satisfied.
 
 ### Added
 
+- Added the 2026-08-24 maintenance closeout with the completed four-week
+  delivery record and current handoff conditions.
 - Added a Week 4 release-readiness report with current repository signals,
   community evidence, and Open Source application-safe facts.
 - Added a 2026-07-31 Week 4 readiness refresh with latest issue, pull-request,
@@ -53,10 +55,9 @@ are satisfied.
 
 ### Release status
 
-- No GitHub release or tag was created in this pass because the stable-release
-  gates remain unmet.
-- Stable release remains blocked pending a stable-version decision, maintainer
-  confirmation of source-risk scope, and stable release notes.
+- The four-week maintenance window is complete at `3.0.0-rc.1`.
+- A stable release will follow a maintainer decision on source-risk scope,
+  versioning, and release notes.
 
 ## [3.0.0-rc.1] - 2026-07-25
 

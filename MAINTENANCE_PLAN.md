@@ -58,3 +58,20 @@ application.
 - Wednesday: quality engineer for tests, defects, and CI.
 - Friday: release and community maintainer for documentation, issue triage,
   release readiness, and evidence tracking.
+
+## Maintenance-window closeout — 2026-08-24
+
+The planned four-week maintenance window is complete. Its delivery record is
+in [reports/maintenance-closeout-2026-08-24.md](reports/maintenance-closeout-2026-08-24.md).
+
+- Week 1 delivered the public governance surface and source-audit boundary.
+- Week 2 delivered reproducible dependencies, regression coverage, and
+  cross-platform quality checks.
+- Week 3 delivered the `3.0.0-rc.1` release candidate, changelog, client setup
+  guide, and release-readiness evidence.
+- Week 4 delivered governance and release-readiness refreshes using observable
+  repository evidence.
+
+The project remains on the release-candidate line. A stable version requires a
+separate maintainer decision on source-risk scope, versioning, and release
+notes, followed by the documented release checks.
